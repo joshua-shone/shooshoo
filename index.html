@@ -2,15 +2,15 @@
 <html>
     <head>
       <title>Shoo Shoo</title>
-      <link rel="preload" as="image" type="image/png" href="simon_shooing.png">
-      <link rel="preload" as="image" type="image/png" href="shoo.png">
-      <link rel="preload" as="image" type="image/png" href="cat.png">
-      <link rel="preload" as="image" type="image/png" href="cat_dragged.png">
-      <link rel="preload" as="image" type="image/png" href="paw.png">
-      <link rel="preload" as="image" type="image/png" href="cat_laptop_appearing.png">
-      <link rel="preload" as="image" type="image/png" href="cat_bottle_appearing.png">
-      <link rel="preload" as="image" type="image/png" href="cat_scared.png">
-      <link rel="preload" as="image" type="image/png" href="cat_running.png">
+      <link rel="preload" as="image" type="image/png" href="images/simon_shooing.png">
+      <link rel="preload" as="image" type="image/png" href="images/shoo.png">
+      <link rel="preload" as="image" type="image/png" href="images/cat.png">
+      <link rel="preload" as="image" type="image/png" href="images/cat_dragged.png">
+      <link rel="preload" as="image" type="image/png" href="images/paw.png">
+      <link rel="preload" as="image" type="image/png" href="images/cat_laptop_appearing.png">
+      <link rel="preload" as="image" type="image/png" href="images/cat_bottle_appearing.png">
+      <link rel="preload" as="image" type="image/png" href="images/cat_scared.png">
+      <link rel="preload" as="image" type="image/png" href="images/cat_running.png">
     </head>
     <body>
       <div id="person" style="left: 40vw; bottom: -11vw;"></div>
@@ -25,7 +25,7 @@
         height: 100%;
       }
       body {
-        background-image: url(living_room.jpg);
+        background-image: url('images/living_room.jpg');
         background-repeat: no-repeat;
         background-size: 100vw;
         background-position: bottom;
@@ -47,14 +47,14 @@
         transform: scaleX(-1);
       }
       #person.shooing::before {
-        background-image: url('simon_shooing.png');
+        background-image: url('images/simon_shooing.png');
       }
       #person::before {
         content: '';
         position: absolute;
         width:  100%;
         height: 100%;
-        background-image: url('simon.png');
+        background-image: url('images/simon.png');
         background-repeat: no-repeat;
         background-size: contain;
         background-position: center;
@@ -63,7 +63,7 @@
         content: '';
         display: block;
         position: absolute;
-        background-image: url('arm.png');
+        background-image: url('images/arm.png');
         background-repeat: no-repeat;
         background-size: contain;
         background-position: center;
@@ -80,7 +80,7 @@
         to   { transform: translate(81%, 25%) rotate(  8deg); }
       }
       .shoo {
-        background-image: url(shoo.png);
+        background-image: url('images/shoo.png');
         background-repeat: no-repeat;
         background-size: contain;
         width: 12vw;
@@ -98,7 +98,7 @@
       }
       .cat {
         position: absolute;
-        background-image: url(cat.png);
+        background-image: url('images/cat.png');
         width: 23vw;
         height: 23vw;
         background-repeat: no-repeat;
@@ -109,7 +109,7 @@
         transform: scaleX(-1);
       }
       .cat.dragged {
-        background-image: url('cat_dragged.png');
+        background-image: url('images/cat_dragged.png');
         animation: swinging 0.8s infinite alternate;
         transform-origin: 50% 25%;
       }
@@ -120,7 +120,7 @@
       .cat.threatening::after {
         display: block;
         content: ' ';
-        background-image: url('paw.png');
+        background-image: url('images/paw.png');
         width: 5vw;
         height: 2.5vw;
         position: absolute;
@@ -135,7 +135,7 @@
         to   { transform: translate(6.2vw, 10.7vw) rotate(9deg) scaleX(1.5); }
       }
       .cat.laptop.appearing {
-        background-image: url('cat_laptop_appearing.png');
+        background-image: url('images/cat_laptop_appearing.png');
         animation: cat-laptop-appearing 2s forwards;
       }
       @keyframes cat-laptop-appearing {
@@ -143,7 +143,7 @@
         to   { transform: translate(-9.5vw, -3.8vw); }
       }
       .cat.bottle.appearing {
-        background-image: url('cat_bottle_appearing.png');
+        background-image: url('images/cat_bottle_appearing.png');
         animation: cat-bottle-appearing 2s forwards;
       }
       @keyframes cat-bottle-appearing {
@@ -159,10 +159,10 @@
         to   { motion-offset: 100%; offset-distance: 100%; }
       }
       .cat.scared {
-        background-image: url('cat_scared.png');
+        background-image: url('images/cat_scared.png');
       }
       .cat.running {
-        background-image: url('cat_running.png');
+        background-image: url('images/cat_running.png');
       }
       .cat.runaway-flowerpot {
         animation: runaway-flowerpot 1.5s linear forwards;
@@ -213,7 +213,7 @@
         pointer-events: none;
       }
       .object.flowerpot {
-        background-image: url(flowerpot.png);
+        background-image: url('images/flowerpot.png');
         width: 14vw;
         height: 14vw;
       }
@@ -221,7 +221,7 @@
         transform: translate(-6vw, 12vw) rotate(-106deg);
       }
       .object.bottle {
-        background-image: url(bottle.png);
+        background-image: url('images/bottle.png');
         width: 3vw;
         height: 8vw;
       }
@@ -229,7 +229,7 @@
         transform: translate(8vw, 15vw) rotate(93deg);
       }
       .object.laptop {
-        background-image: url(laptop.png);
+        background-image: url('images/laptop.png');
         width: 16vw;
         height: 16vw;
       }
@@ -237,14 +237,14 @@
         transform: translate(-7vw, 10vw) rotate(-196deg);
       }
       .object.food {
-        background-image: url(food.png);
+        background-image: url('images/food.png');
         width: 16vw;
         height: 16vw;
         left: 22vw;
         bottom: 9.6vw;
       }
       .object.food.broken {
-        background-image: url(trash.png);
+        background-image: url('images/trash.png');
         left: 33vw;
         bottom: -1vw;
       }
@@ -254,15 +254,15 @@
         bottom: -1.5vw;
         width: 18vw;
         height: 18vw;
-        background-image: url('bag.png');
+        background-image: url('images/bag.png');
         background-repeat: no-repeat;
         background-size: 100% 100%;
         background-position: center;
         animation: jostle-bag 0.8s infinite;
       }
       @keyframes jostle-bag {
-        from { background-image: url('bag.png');  }
-        to   { background-image: url('bag2.png'); }
+        from { background-image: url('images/bag.png');  }
+        to   { background-image: url('images/bag2.png'); }
       }
     </style>
     <script>
@@ -277,8 +277,8 @@
       const scareRadius = 25;
       let shooingTimeout = null;
       const floor = -12.2;
-      const shooSound = new Audio('shoo.mp3');
-      const meowSound = new Audio('meow.mp3');
+      const shooSound = new Audio('sounds/shoo.mp3');
+      const meowSound = new Audio('sounds/meow.mp3');
 
       window.addEventListener('keydown', event => {
         keys[event.key] = true;

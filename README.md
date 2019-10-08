@@ -3,4 +3,4 @@ A silly HTML game made with [Tito](https://www.jer.design) at the [Berlin Mini G
 
 Instructions: one player drags cats from the bag onto objects in the room. The other player moves Simon with the arrow keys and shoos cats away with spacebar before they can knock everything over.
 
-![Shooshoo screenshot](screenshot.jpg)
+![Shooshoo screenshot](images/screenshot.jpg)
