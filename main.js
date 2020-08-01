@@ -119,28 +119,39 @@ function putCatOnObject(object) {
   }
 }
 const bag = document.getElementById('bag');
-bag.addEventListener('mousedown', event => {
+bag.addEventListener('pointerdown', event => {
   event.preventDefault();
+  const pointerId = event.pointerId;
+  bag.setPointerCapture(pointerId);
   const cat = document.createElement('div');
   cat.classList.add('cat');
   cat.classList.add('dragged');
   document.body.appendChild(cat);
-  function handleMousemove(event) {
+  function onPointerMove(event) {
+    if (event.pointerId !== pointerId) {
+      return;
+    }
     cat.style.left   = ((100 * (event.pageX / window.innerWidth)) - 11.5) + 'vw';
     cat.style.bottom = ((100 * ((window.innerHeight - event.pageY) / window.innerWidth)) - 17) + 'vw';
   }
-  handleMousemove(event);
-  function handleMouseup(event) {
-    window.removeEventListener('mousemove', handleMousemove);
-    window.removeEventListener('mouseup', handleMouseup);
-    if (event.target.classList.contains('object')) {
-      putCatOnObject(event.target);
+  onPointerMove(event);
+  function onPointerEnd(event) {
+    if (event.pointerId !== pointerId) {
+      return;
+    }
+    bag.releasePointerCapture(pointerId);
+    bag.removeEventListener('pointermove', onPointerMove);
+    bag.removeEventListener('pointerup', onPointerEnd);
+    bag.removeEventListener('pointercancel', onPointerEnd);
+    const target = document.elementFromPoint(event.pageX, event.pageY);
+    if (target && target.classList.contains('object')) {
+      putCatOnObject(target);
       cat.remove();
     } else {
       cat.remove();
     }
   }
-  window.addEventListener('mousemove', handleMousemove);
-  window.addEventListener('mouseup', handleMouseup);
-  return false;
+  bag.addEventListener('pointermove', onPointerMove);
+  bag.addEventListener('pointerup', onPointerEnd);
+  bag.addEventListener('pointercancel', onPointerEnd);
 });
