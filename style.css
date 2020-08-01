@@ -1,0 +1,248 @@
+html {
+  height: 100%;
+}
+body {
+  background-image: url('images/living_room.jpg');
+  background-repeat: no-repeat;
+  background-size: 100vw;
+  background-position: bottom;
+  overflow: hidden;
+  height: 100%;
+  margin: 0;
+}
+
+#person {
+  position: absolute;
+  left: 40vw;
+  bottom: -11vw;
+  display: block;
+  width: 35vw;
+  height: 35vw;
+  z-index: 3;
+  pointer-events: none;
+}
+#person.facing-left {
+  transform: scaleX(-1);
+}
+#person.shooing::before {
+  background-image: url('images/simon_shooing.png');
+}
+#person::before {
+  content: '';
+  position: absolute;
+  width:  100%;
+  height: 100%;
+  background-image: url('images/simon.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+#person::after {
+  content: '';
+  display: block;
+  position: absolute;
+  background-image: url('images/arm.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  width:  50%;
+  height: 50%;
+  transform: translate(74%, 25%);
+  z-index: -1;
+}
+#person.shooing::after {
+  animation: shake-arm 0.1s infinite alternate;
+}
+@keyframes shake-arm {
+  from { transform: translate(70%, 19%) rotate(-32deg); }
+  to   { transform: translate(81%, 25%) rotate(  8deg); }
+}
+
+.shoo {
+  background-image: url('images/shoo.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 12vw;
+  height: 6vw;
+  z-index: 3;
+  display: block;
+  position: absolute;
+  opacity: 1;
+  animation: fadeout 2s;
+  animation-fill-mode: forwards;
+}
+@keyframes fadeout {
+  from { opacity: 1; transform: scale(1);  }
+  to   { opacity: 0; transform: scale(0.8);}
+}
+
+.cat {
+  position: absolute;
+  background-image: url('images/cat.png');
+  width: 23vw;
+  height: 23vw;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.cat.look-right {
+  transform: scaleX(-1);
+}
+.cat.dragged {
+  background-image: url('images/cat_dragged.png');
+  animation: swinging 0.8s infinite alternate;
+  transform-origin: 50% 25%;
+}
+@keyframes swinging {
+  from { transform: rotate(-45deg); }
+  to   { transform: rotate( 45deg); }
+}
+.cat.threatening::after {
+  display: block;
+  content: ' ';
+  background-image: url('images/paw.png');
+  width: 5vw;
+  height: 2.5vw;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  transform: translate(8.2vw, 12vw) rotate(-66deg);
+  animation: threaten 3s linear;
+}
+@keyframes threaten {
+  from { transform: translate(8.2vw, 12vw)   rotate(-66deg);           }
+  to   { transform: translate(6.2vw, 10.7vw) rotate(9deg) scaleX(1.5); }
+}
+.cat.laptop.appearing {
+  background-image: url('images/cat_laptop_appearing.png');
+  animation: cat-laptop-appearing 2s forwards;
+}
+@keyframes cat-laptop-appearing {
+  from { transform: translate(-9.5vw,    1vw); }
+  to   { transform: translate(-9.5vw, -3.8vw); }
+}
+.cat.bottle.appearing {
+  background-image: url('images/cat_bottle_appearing.png');
+  animation: cat-bottle-appearing 2s forwards;
+}
+@keyframes cat-bottle-appearing {
+  from { transform: translate(7vw, 0vw) scale(0.6); }
+  to   { transform: translate(5vw, 0vw) scale(0.6); }
+}
+.cat.runaway {
+  animation: runaway 5s ease-out;
+  offset-path: path('M100,250 C 100,50 400,50 400,250');
+}
+@keyframes runaway {
+  from { motion-offset:   0%; offset-distance:   0%; }
+  to   { motion-offset: 100%; offset-distance: 100%; }
+}
+.cat.scared {
+  background-image: url('images/cat_scared.png');
+}
+.cat.running {
+  background-image: url('images/cat_running.png');
+}
+.cat.runaway-flowerpot {
+  animation: runaway-flowerpot 1.5s linear forwards;
+}
+@keyframes runaway-flowerpot {
+  20%   { left: 71vw;  bottom: 27vw; }
+  30%   { left: 59vw;  bottom: 21vw; }
+  50%   { left: 61vw;  bottom: 0vw;  }
+  70%   { left: 30vw;  bottom: -7vw; }
+  100%  { left: -21vw; bottom: -7vw; }
+}
+.cat.runaway-laptop {
+  animation: runaway-laptop 1s linear forwards;
+}
+@keyframes runaway-laptop {
+  20%  { left: 41vw; bottom: 16vw;   }
+  30%  { left: 31vw; bottom: -2.5vw; }
+  100% { left: 0vw;  bottom: -25vw;  }
+}
+.cat.runaway-bottle {
+  animation: runaway-bottle 1s linear forwards;
+}
+@keyframes runaway-bottle {
+  20%  { left: 8vw;  bottom: 14vw;  }
+  30%  { left: 22vw; bottom: 8vw;   }
+  60%  { left: 36vw; bottom: -7vw;  }
+  100% { left: 89vw; bottom: -16vw; }
+}
+.cat.runaway-food {
+  animation: runaway-food 1s linear forwards;
+}
+@keyframes runaway-food {
+  20%  { left: 47vw;  bottom: 21vw; }
+  50%  { left: 80vw;  bottom: 15vw; }
+  100% { left: 103vw; bottom: 15vw; }
+}
+
+.object {
+  position: absolute;
+  z-index: 2;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.object:hover {
+  outline: 1vw solid blue;
+}
+.object.broken {
+  pointer-events: none;
+}
+.object.flowerpot {
+  background-image: url('images/flowerpot.png');
+  width: 14vw;
+  height: 14vw;
+}
+.object.flowerpot.broken {
+  transform: translate(-6vw, 12vw) rotate(-106deg);
+}
+.object.bottle {
+  background-image: url('images/bottle.png');
+  width: 3vw;
+  height: 8vw;
+}
+.bottle.broken {
+  transform: translate(8vw, 15vw) rotate(93deg);
+}
+.object.laptop {
+  background-image: url('images/laptop.png');
+  width: 16vw;
+  height: 16vw;
+}
+.object.laptop.broken {
+  transform: translate(-7vw, 10vw) rotate(-196deg);
+}
+.object.food {
+  background-image: url('images/food.png');
+  width: 16vw;
+  height: 16vw;
+  left: 22vw;
+  bottom: 9.6vw;
+}
+.object.food.broken {
+  background-image: url('images/trash.png');
+  left: 33vw;
+  bottom: -1vw;
+}
+
+#bag {
+  position: absolute;
+  left: 84vw;
+  bottom: -1.5vw;
+  width: 18vw;
+  height: 18vw;
+  background-image: url('images/bag.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  animation: jostle-bag 0.8s alternate ease-in-out infinite;
+}
+@keyframes jostle-bag {
+  from { background-image: url('images/bag.png');  }
+  to   { background-image: url('images/bag2.png'); }
+}
