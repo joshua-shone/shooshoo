@@ -194,38 +194,38 @@ body {
 .object.broken {
   pointer-events: none;
 }
-.object.flowerpot {
+.object[data-object="flowerpot"] {
   background-image: url('images/flowerpot.png');
   width: 14vw;
   height: 14vw;
 }
-.object.flowerpot.broken {
+.object[data-object="flowerpot"].broken {
   transform: translate(-6vw, 12vw) rotate(-106deg);
 }
-.object.bottle {
+.object[data-object="bottle"] {
   background-image: url('images/bottle.png');
   width: 3vw;
   height: 8vw;
 }
-.bottle.broken {
+.object[data-object="bottle"].broken {
   transform: translate(8vw, 15vw) rotate(93deg);
 }
-.object.laptop {
+.object[data-object="laptop"] {
   background-image: url('images/laptop.png');
   width: 16vw;
   height: 16vw;
 }
-.object.laptop.broken {
+.object[data-object="laptop"].broken {
   transform: translate(-7vw, 10vw) rotate(-196deg);
 }
-.object.food {
+.object[data-object="food"] {
   background-image: url('images/food.png');
   width: 16vw;
   height: 16vw;
   left: 22vw;
   bottom: 9.6vw;
 }
-.object.food.broken {
+.object[data-object="food"].broken {
   background-image: url('images/trash.png');
   left: 33vw;
   bottom: -1vw;
